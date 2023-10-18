@@ -2,7 +2,7 @@
 
 ## Dokumentacja + slajdy
 
-* https://infotraining.bitbucket.io/cpp-tdd
+* https://infotraining.github.io/docs-cpp-tdd
 
 ## Konfiguracja środowiska
 
