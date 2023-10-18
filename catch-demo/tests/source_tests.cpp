@@ -23,6 +23,14 @@ TEST_CASE("pushing items to vector", "[vector][push]")
         {
             REQUIRE(vec.capacity() >= 2);
         }
+
+        SECTION("item is inserted at back")
+        {            
+            REQUIRE(vec == std::vector{1, 2, 3});
+
+            auto expected = vector<int>{ 1, 2, 3 };
+            REQUIRE(std::equal(vec.begin(), vec.end(), expected.begin(), expected.end()));
+        }
     }
 }
 
@@ -40,6 +48,11 @@ SCENARIO("pushing items to vector")
             THEN("size is increased")
             {
                 REQUIRE(vec.size() - prev_size == 1);
+            }
+
+            THEN("capacity can be increased")
+            {
+                REQUIRE(vec.capacity() >= 2);
             }
         }
     }
