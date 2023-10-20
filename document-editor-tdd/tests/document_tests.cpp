@@ -99,9 +99,9 @@ struct Document_Memento : Document_ValueConstructed
 
 TEST_F(Document_Memento, RestoresThePreviousState)
 {
-    auto snaphot = doc.create_memento();
+    auto snapshot = doc.create_memento();
     doc.clear();
-    doc.set_memento(snaphot);
+    doc.set_memento(snapshot);
 
     ASSERT_THAT(doc.text(), StrEq("abc"));
 }

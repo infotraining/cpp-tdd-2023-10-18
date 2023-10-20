@@ -9,5 +9,5 @@ namespace di = boost::di;
 
 int main()
 {
-    Application app;
+    //Application app;
 }

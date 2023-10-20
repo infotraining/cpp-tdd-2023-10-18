@@ -8,6 +8,15 @@
 
 class Application
 {
+    Console& console_;
+public:
+    Application(Console& console) : console_(console) {}
+
+    void run()
+    {
+        console_.print("> Enter a command:");
+        auto line = console_.get_line();        
+    }
 };
 
 #endif // APPLICATION_HPP
