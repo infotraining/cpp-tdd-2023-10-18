@@ -21,8 +21,7 @@ protected:
 };
 
 TEST_F(ApplicationTests, DisplaysPromptForCommand)
-{
-    
+{    
     EXPECT_CALL(console, print(_)).WillRepeatedly(Return());
     EXPECT_CALL(console, print("> Enter a command:")).Times(1).RetiresOnSaturation();    
     
@@ -69,18 +68,7 @@ TEST_F(ApplicationTests, UnknownCommandPrintsErrorMessage)
 
 /////////////////////////////////////////////////////////////////////////
 
-class PrintCmd: public Command
-{
-    Document& doc_;
-    Console& console_;
-public:
-    PrintCmd(Console& console, Document& doc) : console_(console), doc_(doc) {}
-    
-    void execute() override
-    {
-        console_.print("[" + doc_.text() + "]");
-    }
-};
+
 
 TEST(PrintCmdTests, DocumentContentIsPrintedInConsole)
 {

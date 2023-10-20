@@ -20,3 +20,4 @@ target_link_libraries(${PROJECT_TESTS} ${PROJECT_LIB} GTest::gmock_main)
 include(CTest)
 include(GoogleTest)
 gtest_discover_tests(${PROJECT_TESTS})
+

@@ -1,5 +1,9 @@
 # Szkolenie - Test-Driven Development w C++ #
 
+## Ankieta
+
+* https://forms.gle/JRW8BNmorFCvSBed8
+
 ## Dokumentacja + slajdy
 
 * https://infotraining.github.io/docs-cpp-tdd
