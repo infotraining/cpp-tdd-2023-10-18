@@ -68,8 +68,3 @@ TEST_CASE("Parametrized test")
 
 	REQUIRE(vec.size() == expected_size);
 }
-
-TEST_CASE("one")
-{
-	REQUIRE(1 == 2);
-}

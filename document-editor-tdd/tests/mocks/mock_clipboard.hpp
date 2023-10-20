@@ -1,13 +1,14 @@
 #ifndef MOCK_CLIPBOARD_HPP
+#define MOCK_CLIPBOARD_HPP
 
-#include <trompeloeil.hpp>
+#include "gmock/gmock.h"
 
 #include "clipboard.hpp"
 
 struct MockClipboard : Clipboard
 {
-    MAKE_CONST_MOCK0(content, std::string());
-    MAKE_MOCK1(set_content, void (const std::string&));
+    MOCK_METHOD(std::string, content, (), (const, override));
+    MOCK_METHOD(void, set_content, (const std::string&), (override));
 };
 
-#endif // MOCK_CLIPBOARD_HPP
+#endif //MOCK_CLIPBOARD_HPP
