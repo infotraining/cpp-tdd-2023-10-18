@@ -26,6 +26,23 @@
     > [line1]
     ```
 
+  - Clear
+
+  ```
+    ./document editor
+    > Enter a command:
+    > AddText
+    > Write text: line1   # line1 is appended to a document
+    > Enter a command:
+    > Print
+    > [line1]
+    > Enter a command:
+    > Clear
+    > Enter a command:
+    > Print
+    > []
+    ```
+
   - ToUpper 
     - changes letters to uppercase
 
