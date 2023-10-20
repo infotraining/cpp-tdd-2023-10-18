@@ -9,13 +9,25 @@
 class Application
 {
     Console& console_;
+
+    constexpr static auto EXIT = "exit";
 public:
     Application(Console& console) : console_(console) {}
 
     void run()
     {
-        console_.print("> Enter a command:");
-        auto line = console_.get_line();        
+        do
+        {
+            console_.print("> Enter a command:");
+            
+            auto line = console_.get_line();
+            if (line == EXIT)
+            {
+                console_.print("Bye!!!");
+                return;
+            }
+        }
+        while(true);
     }
 };
 

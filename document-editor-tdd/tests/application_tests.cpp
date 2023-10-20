@@ -4,22 +4,41 @@
 
 using namespace ::testing;
 
-TEST(ApplicationTests, DisplaysPromptForCommand)
+class ApplicationTests : public ::testing::Test
 {
-    MockConsole console;
-    Application app(console); // DI
+protected:
+    NiceMock<MockConsole> console;
+    Application app{console};// DI
 
-    EXPECT_CALL(console, print("> Enter a command:"));
+    void SetUp() override
+    {
+        EXPECT_CALL(console, get_line()).WillOnce(Return("exit"));
+    }
+};
+
+TEST_F(ApplicationTests, DisplaysPromptForCommand)
+{
+    
+    EXPECT_CALL(console, print(_)).WillRepeatedly(Return());
+    EXPECT_CALL(console, print("> Enter a command:")).Times(1).RetiresOnSaturation();    
     
     app.run();
 }
 
-TEST(ApplicationTests, GetsLineFromConsole)
+TEST_F(ApplicationTests, GetsLineFromConsole)
 {
-    MockConsole console;
-    Application app(console);
-
-    EXPECT_CALL(console, get_line());
-
     app.run();
 }   
+
+TEST_F(ApplicationTests, ExitEndsLoop)
+{
+    EXPECT_CALL(console, get_line())
+        .Times(3)
+        .WillRepeatedly(Return("cmd"))
+        .RetiresOnSaturation();
+
+    EXPECT_CALL(console, print("Bye!!!"));
+    EXPECT_CALL(console, print(StartsWith(">"))).Times(4).RetiresOnSaturation();
+
+    app.run();
+}
